@@ -1,4 +1,11 @@
-const auta = [];
+let auta = [];
+
+function Init(){
+	auta = JSON.parse(localStorage.getItem('auta'));
+	if(auta == null){
+		auta = [];
+	}
+}
 
 class Auto {
     constructor(znacka, model, rok, kilometry) {
@@ -16,10 +23,10 @@ function DisplayAllCars() {
 
 
     for (var i = 0; i < auta.length; i++) {
-    	if(auta[i] != undefined){
-    		DisplayCar(i, auta[i]);
-    	}
-    	
+        if (auta[i] != undefined) {
+            DisplayCar(i, auta[i]);
+        }
+
     }
 }
 
@@ -85,11 +92,17 @@ function AddCar() {
     document.getElementById('model').value = '';
     document.getElementById('rok').value = '';
     document.getElementById('kilometry').value = '';
+
+    let autaCopy = JSON.stringify(auta);
+    localStorage.setItem('auta', autaCopy);
 }
 
 // Smaže auto z autoservisu
 //udelam to pomoci buttonu na karte
 function DeleteCar(index) {
-	document.getElementById('carsPlace').removeChild(document.getElementById(index));
-	auta[index] = undefined;
+    document.getElementById('carsPlace').removeChild(document.getElementById(index));
+    auta[index] = undefined;
+    
+    let autaCopy = JSON.stringify(auta);
+    localStorage.setItem('auta', autaCopy);
 }
