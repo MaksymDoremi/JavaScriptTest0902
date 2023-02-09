@@ -13,6 +13,13 @@ class Auto {
     }
 }
 
-function AddCar(znacka, model, rok, kilometry){
+function AddCar() {
+    var znacka = document.getElementById('znacka').value;
+    var model = document.getElementById('model').value;
+    var rok = document.getElementById('rok').value;
+    var kilometry = document.getElementById('kilometry').value;
 
+    auta[auta.length] = new Auto(znacka, model, rok, kilometry);
+
+    alert('Auto přidáno úspešně');
 }
