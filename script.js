@@ -1,10 +1,10 @@
 let auta = [];
 
-function Init(){
-	auta = JSON.parse(localStorage.getItem('auta'));
-	if(auta == null){
-		auta = [];
-	}
+function Init() {
+    auta = JSON.parse(localStorage.getItem('auta'));
+    if (auta == null) {
+        auta = [];
+    }
 }
 
 class Auto {
@@ -82,27 +82,32 @@ function AddCar() {
     var rok = document.getElementById('rok').value;
     var kilometry = document.getElementById('kilometry').value;
 
-    auta[auta.length] = new Auto(znacka, model, rok, kilometry);
+    if (znacka != '' && model != '' && rok != '' && kilometry != '') {
+        auta[auta.length] = new Auto(znacka, model, rok, kilometry);
 
-    alert('Auto přidáno úspešně');
+        alert('Auto přidáno úspešně');
 
-    DisplayCar(auta.length - 1, auta[auta.length - 1]);
+        DisplayCar(auta.length - 1, auta[auta.length - 1]);
 
-    document.getElementById('znacka').value = '';
-    document.getElementById('model').value = '';
-    document.getElementById('rok').value = '';
-    document.getElementById('kilometry').value = '';
+        document.getElementById('znacka').value = '';
+        document.getElementById('model').value = '';
+        document.getElementById('rok').value = '';
+        document.getElementById('kilometry').value = '';
 
-    let autaCopy = JSON.stringify(auta);
-    localStorage.setItem('auta', autaCopy);
+        let autaCopy = JSON.stringify(auta);
+        localStorage.setItem('auta', autaCopy);
+    } else {
+        alert('políčko nesmí být prázdný');
+    }
 }
+
 
 // Smaže auto z autoservisu
 //udelam to pomoci buttonu na karte
 function DeleteCar(index) {
     document.getElementById('carsPlace').removeChild(document.getElementById(index));
     auta[index] = undefined;
-    
+
     let autaCopy = JSON.stringify(auta);
     localStorage.setItem('auta', autaCopy);
 }
