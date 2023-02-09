@@ -16,7 +16,7 @@
 		</div>
 	</nav>
 	<!-- Form -->
-	<form class="container">
+	<form class="container mb-3">
 		<div class="row mb-3">
 			<label for="znacka" class="col-sm-2 col-form-label">Značka</label>
 			<div class="col-sm-10">
@@ -35,7 +35,7 @@
 				<input type="text" class="form-control" id="rok">
 			</div>
 		</div>
-			<div class="row mb-3">
+		<div class="row mb-3">
 			<label for="kilometry" class="col-sm-2 col-form-label">Kilometry</label>
 			<div class="col-sm-10">
 				<input type="text" class="form-control" id="kilometry">
@@ -43,6 +43,18 @@
 		</div>
 		<button type="submit" class="btn btn-primary" onclick="AddCar()">Add Car</button>
 	</form>
+
+	<div class="container border p-1 d-flex flex-row flex-wrap" id="carsPlace">
+		
+		<div class="card text-center m-3" style="width: 18rem;" id="auta.length">
+			<div class="card-body">
+				<h5 class="card-title">Znacka Model</h5>
+				<p class="card-text">Rok: Kilometry: </p>
+				<a href="#" class="btn btn-danger" onclick="DeleteCar('index')">Delete</a>
+			</div>
+		</div>
+
+	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 </body>
 </html>
